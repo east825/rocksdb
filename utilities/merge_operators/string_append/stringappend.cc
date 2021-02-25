@@ -37,7 +37,9 @@ bool StringAppendOperator::Merge(const Slice& /*key*/,
     // Reserve *new_value to correct size, and apply concatenation.
     new_value->reserve(existing_value->size() + 1 + value.size());
     new_value->assign(existing_value->data(),existing_value->size());
-    new_value->append(1,delim_);
+    if (delim_ != '\0') {
+      new_value->append(1, delim_);
+    }
     new_value->append(value.data(), value.size());
   }
 

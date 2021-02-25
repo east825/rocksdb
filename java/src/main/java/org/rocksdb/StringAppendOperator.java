@@ -12,7 +12,7 @@ package org.rocksdb;
  */
 public class StringAppendOperator extends MergeOperator {
     public StringAppendOperator() {
-        this(',');
+        this('\0');
     }
 
     public StringAppendOperator(char delim) {
